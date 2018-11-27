@@ -1,6 +1,6 @@
 {
   "name": "bemy-class-builder",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "Dmitrii Samsonov <user1736@yandex.ru>",
   "license": "WTFPL",
   "main": "dist/index.js",
