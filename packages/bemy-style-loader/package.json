@@ -1,0 +1,16 @@
+{
+  "name": "bemy-style-loader",
+  "version": "0.0.1",
+  "author": "Dmitrii Samsonov <user1736@yandex.ru>",
+  "license": "WTFPL",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "cross-env NODE_ENV=production webpack"
+  },
+  "peerDependencies": {
+    "bemy-class-builder": "0.0.1"
+  },
+  "dependencies": {
+    "loader-utils": "^1.1.0"
+  }
+}

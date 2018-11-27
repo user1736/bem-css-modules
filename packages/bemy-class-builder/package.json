@@ -1,0 +1,15 @@
+{
+  "name": "bemy-class-builder",
+  "version": "0.0.1",
+  "author": "Dmitrii Samsonov <user1736@yandex.ru>",
+  "license": "WTFPL",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "cross-env NODE_ENV=production webpack"
+  },
+  "dependencies": {
+    "@bem/sdk.naming.entity": "^0.2.10",
+    "classnames": "^2.2.6",
+    "lodash": "^4.17.11"
+  }
+}
