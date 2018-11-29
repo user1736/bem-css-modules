@@ -5,20 +5,12 @@
     "packages/*"
   ],
   "scripts": {
-    "build": "lerna run build",
     "publish": "lerna publish --conventional-commits"
   },
   "dependencies": {
-    "@babel/core": "^7.1.6",
-    "@babel/preset-env": "^7.1.6",
-    "babel-loader": "^8.0.4",
-    "babel-plugin-transform-remove-console": "^6.9.4",
-    "clean-webpack-plugin": "^1.0.0",
     "eslint": "^5.9.0",
     "eslint-config-standard": "^12.0.0",
-    "prettier-standard": "^8.0.1",
-    "webpack": "^4.26.1",
-    "webpack-cli": "^3.1.2"
+    "prettier-standard": "^8.0.1"
   },
   "devDependencies": {
     "lerna": "^3.4.3"
