@@ -3,12 +3,9 @@
   "version": "0.0.3",
   "author": "Dmitrii Samsonov <user1736@yandex.ru>",
   "license": "WTFPL",
-  "main": "dist/index.js",
-  "scripts": {
-    "build": "cross-env NODE_ENV=production webpack"
-  },
+  "main": "index.js",
   "peerDependencies": {
-    "bemy-class-builder": "^0.0.1"
+    "bemy-class-builder": "^1.0.0"
   },
   "dependencies": {
     "loader-utils": "^1.1.0"
