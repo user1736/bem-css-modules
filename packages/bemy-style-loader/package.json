@@ -1,6 +1,6 @@
 {
   "name": "bemy-style-loader",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "author": "Dmitrii Samsonov <user1736@yandex.ru>",
   "license": "WTFPL",
   "main": "dist/index.js",
