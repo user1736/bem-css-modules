@@ -1,6 +1,6 @@
 import noop from 'lodash/noop'
 import cn from 'classnames'
-import convert from './convert'
+import convert from './utils/convert'
 
 const mapModifiers = (modifiers, entity) => {
   if (!entity.mod || !modifiers) {
@@ -17,27 +17,27 @@ const mapModifiers = (modifiers, entity) => {
       if (typeof entityMod === 'string') {
         return {
           ...seed,
-          [entityMod]: modifiers[mod],
+          [entityMod]: modifiers[mod]
         }
       }
 
       const modValue = modifiers[mod]
       return {
         ...seed,
-        [entityMod[modValue]]: true,
+        [entityMod[modValue]]: true
       }
     }, {})
   }
 }
 
-const createBuilder = (entity) => (modifiers, extraClasses) =>
+const createBuilder = entity => (modifiers, extraClasses) =>
   cn(entity.cls, mapModifiers(modifiers, entity), extraClasses)
 
 const isProxySupported = typeof Proxy === 'function'
 const proxyExceptionList = ['__esModule', 'default']
 const createProxy = (obj, filePath) =>
   new Proxy(obj, {
-    get(target, prop, receiver) {
+    get (target, prop, receiver) {
       if (!target[prop] && !proxyExceptionList.includes(prop)) {
         /* eslint-disable no-console */
         console.error(`element "${prop}" is not defined in ${filePath}`)
@@ -46,7 +46,7 @@ const createProxy = (obj, filePath) =>
       }
 
       return Reflect.get(target, prop, receiver)
-    },
+    }
   })
 
 const index = (cssModule, options, filePath) => {
@@ -67,7 +67,7 @@ const index = (cssModule, options, filePath) => {
 
   const block = bemTree[blocks[0]]
   const builder = createBuilder(block)
-  Object.keys(block.elem || {}).forEach((elemName) => {
+  Object.keys(block.elem || {}).forEach(elemName => {
     builder[elemName] = createBuilder(block.elem[elemName])
   })
 

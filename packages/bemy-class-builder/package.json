@@ -3,10 +3,7 @@
   "version": "0.0.2",
   "author": "Dmitrii Samsonov <user1736@yandex.ru>",
   "license": "WTFPL",
-  "main": "dist/index.js",
-  "scripts": {
-    "build": "cross-env NODE_ENV=production webpack"
-  },
+  "main": "index.js",
   "dependencies": {
     "@bem/sdk.naming.entity": "^0.2.10",
     "classnames": "^2.2.6",
