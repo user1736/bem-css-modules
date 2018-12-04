@@ -1,8 +1,18 @@
 {
   "name": "bemy-class-builder",
+  "description": "Tool which is here to help you work with BEM structured classes in a nice way",
+  "keywords": [
+    "BEM",
+    "classnames",
+    "css-modules"
+  ],
   "version": "1.0.0",
   "author": "Dmitrii Samsonov <user1736@yandex.ru>",
-  "license": "WTFPL",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/user1736/bem-css-modules.git"
+  },
+  "license": "MIT",
   "main": "index.js",
   "dependencies": {
     "@bem/sdk.naming.entity": "^0.2.10",
