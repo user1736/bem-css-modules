@@ -38,10 +38,13 @@ const proxyExceptionList = ['__esModule', 'default']
 const createProxy = (obj, filePath) =>
   new Proxy(obj, {
     get (target, prop, receiver) {
+      const loggingEnabled = !!filePath
       if (!target[prop] && !proxyExceptionList.includes(prop)) {
-        /* eslint-disable no-console */
-        console.error(`element "${prop}" is not defined in ${filePath}`)
-        /* eslint-enable no-console */
+        if (loggingEnabled) {
+          /* eslint-disable no-console */
+          console.error(`element "${prop}" is not defined in ${filePath}`)
+          /* eslint-enable no-console */
+        }
         return noop
       }
 
@@ -49,17 +52,20 @@ const createProxy = (obj, filePath) =>
     }
   })
 
-const index = (cssModule, options, filePath) => {
+const bemyClassBuilder = (cssModule, options, filePath) => {
+  const loggingEnabled = !!filePath
   const bemTree = convert(cssModule, options)
   const blocks = Object.keys(bemTree)
   if (!blocks || blocks.length === 0) {
-    /* eslint-disable no-console */
-    console.error(`${filePath} doesn't contain styles`)
-    /* eslint-enable no-console */
+    if (loggingEnabled) {
+      /* eslint-disable no-console */
+      console.error(`${filePath} doesn't contain styles`)
+      /* eslint-enable no-console */
+    }
     return null
   }
 
-  if (blocks.length > 1) {
+  if (blocks.length > 1 && loggingEnabled) {
     /* eslint-disable no-console */
     console.warn(`${filePath} contains styles of more than one block`)
     /* eslint-enable no-console */
@@ -76,4 +82,4 @@ const index = (cssModule, options, filePath) => {
   return isProxySupported ? createProxy(builder, filePath) : builder
 }
 
-export default index
+export default bemyClassBuilder
