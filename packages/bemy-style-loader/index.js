@@ -8,9 +8,12 @@ module.exports.pitch = function (remainingRequest) {
   }
 
   const options = getOptions(this) || {}
-  const basePath = options.baseAppPath
   const inlineOptions = JSON.stringify(options)
-  const filePath = JSON.stringify(path.relative(basePath, this.resourcePath))
+
+  const basePath = options.baseAppPath
+  const filePath = basePath
+    ? JSON.stringify(path.relative(basePath, this.resourcePath))
+    : ''
 
   const output = `
       module.exports = require('bemy-class-builder').default(
